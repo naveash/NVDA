@@ -12,7 +12,7 @@
 
     <nav class="bg-gray-800 p-4 shadow-xl fixed w-full z-10 top-0">
         <div class="container mx-auto flex justify-between items-center flex-wrap">
-            <a href="index.html" class="text-white text-3xl font-extrabold rounded-md px-3 py-2 hover:bg-gray-700 transition duration-300">
+            <a href="index.html" class="text-white text-xl md:text-3xl font-extrabold rounded-md px-3 py-2 hover:bg-gray-700 transition duration-300">
                 <span class="text-green-400">NVIDIA</span> Dashboard
             </a>
             <div class="block lg:hidden">
@@ -34,15 +34,15 @@
     </nav>
 
     <div class="container mx-auto px-4 mt-24 pb-8">
-        <section id="overview-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
-            <h1 class="text-5xl font-extrabold text-white mb-4 text-center leading-tight">
+        <section id="overview-section" class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 text-center leading-tight">
                 סיכום פיננסי מקיף של <span class="text-green-400">NVIDIA</span>
             </h1>
-            <p class="text-xl text-gray-300 mb-8 text-center">
+            <p class="text-md sm:text-lg md:text-xl text-gray-300 mb-8 text-center">
                 רבעון 1, שנת כספים 2026 (הסתיים ב-27 באפריל 2025)
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="card bg-gray-900 border border-green-600">
                     <div class="card-title text-green-400">
                         <span class="tooltip">
@@ -141,34 +141,34 @@
             </div>
         </section>
 
-        <section id="graphs-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
-            <h2 class="text-4xl font-bold text-white mb-6 text-center">גרפים פיננסיים מקיפים</h2>
-            <p class="text-lg text-gray-300 text-center mb-8">
+        <section id="graphs-section" class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 text-center">גרפים פיננסיים מקיפים</h2>
+            <p class="text-md sm:text-lg text-gray-300 text-center mb-8">
                 הצצה ויזואלית למגמות הביצועים של NVIDIA לאורך רבעונים.
             </p>
 
-            <div class="bg-gray-900 p-6 rounded-lg shadow-inner mb-6">
-                <h3 class="text-2xl font-semibold text-green-400 mb-4 text-center">הכנסות כוללות לפי רבעון (במיליארדי דולרים)</h3>
+            <div class="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-inner mb-6">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-400 mb-4 text-center">הכנסות כוללות לפי רבעון (במיליארדי דולרים)</h3>
                 <canvas id="revenueChart"></canvas>
             </div>
 
-            <div class="bg-gray-900 p-6 rounded-lg shadow-inner mb-6">
-                <h3 class="text-2xl font-semibold text-green-400 mb-4 text-center">רווח גולמי Non-GAAP לפי רבעון (%)</h3>
+            <div class="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-inner mb-6">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-400 mb-4 text-center">רווח גולמי Non-GAAP לפי רבעון (%)</h3>
                 <canvas id="grossMarginChart"></canvas>
             </div>
 
-            <div class="bg-gray-900 p-6 rounded-lg shadow-inner">
-                <h3 class="text-2xl font-semibold text-green-400 mb-4 text-center">הכנסות לפי מגזרים (Q1 FY26)</h3>
+            <div class="bg-gray-900 p-4 sm:p-6 rounded-lg shadow-inner">
+                <h3 class="text-xl sm:text-2xl font-semibold text-green-400 mb-4 text-center">הכנסות לפי מגזרים (Q1 FY26)</h3>
                 <canvas id="segmentRevenueChart"></canvas>
             </div>
         </section>
 
-        <section id="segments-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
-            <h2 class="text-4xl font-bold text-white mb-6 text-center">הכנסות לפי מגזרים עיקריים</h2>
-            <p class="text-lg text-gray-300 text-center mb-8">
+        <section id="segments-section" class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 text-center">הכנסות לפי מגזרים עיקריים</h2>
+            <p class="text-md sm:text-lg text-gray-300 text-center mb-8">
                 ניתוח מעמיק של תרומת כל מגזר להכנסות הכוללות של NVIDIA.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="card bg-gray-900 border border-blue-600">
                     <div class="card-title text-blue-400">
                         <span class="tooltip">
@@ -244,12 +244,12 @@
             </div>
         </section>
 
-        <section id="outlook-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
-            <h2 class="text-4xl font-bold text-white mb-6 text-center">תחזיות ודגשים עתידיים</h2>
-            <p class="text-lg text-gray-300 text-center mb-8">
+        <section id="outlook-section" class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 text-center">תחזיות ודגשים עתידיים</h2>
+            <p class="text-md sm:text-lg text-gray-300 text-center mb-8">
                 מבט קדימה על ציפיות החברה לרבעונים הבאים ודגשי הפיתוח.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="card bg-gray-900 border border-indigo-600">
                     <div class="card-title text-indigo-400">
                         <span class="tooltip">
@@ -281,7 +281,7 @@
                     </div>
                 </div>
             </div>
-            <div class="note bg-gray-900 border border-gray-600 p-6 rounded-lg mt-8 text-gray-300">
+            <div class="note bg-gray-900 border border-gray-600 p-4 sm:p-6 rounded-lg mt-8 text-gray-300">
                 <h3 class="text-xl font-bold text-green-400 mb-3">דגשים נוספים:</h3>
                 <ul class="list-disc list-inside space-y-2">
                     <li><strong class="text-white">דיבידנד:</strong> NVIDIA תשלם דיבידנד רבעוני במזומן של **$0.01 למניה** ב-3 ביולי 2025.</li>
@@ -291,9 +291,9 @@
             </div>
         </section>
 
-        <section id="concepts-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl border-b-4 border-green-500">
-            <h2 class="text-4xl font-bold text-white mb-6 text-center">מושגים פיננסיים והסברים</h2>
-            <p class="text-lg text-gray-300 text-center mb-8">
+        <section id="concepts-section" class="bg-gray-800 p-6 sm:p-8 rounded-xl shadow-2xl border-b-4 border-green-500">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6 text-center">מושגים פיננסיים והסברים</h2>
+            <p class="text-md sm:text-lg text-gray-300 text-center mb-8">
                 הבנה מעמיקה של המונחים הפיננסיים המרכזיים בדוחות החברה.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
