@@ -1,3 +1,5 @@
+// קוד JavaScript עבור לוח המחוונים של NVIDIA
+
 // נתונים היסטוריים מורחבים עבור גרף ההכנסות (במיליארדי דולרים)
 const revenueDataExtended = {
     labels: ['Q1 FY24', 'Q2 FY24', 'Q3 FY24', 'Q4 FY24', 'Q1 FY25', 'Q2 FY25', 'Q3 FY25', 'Q4 FY25', 'Q1 FY26'],
@@ -341,4 +343,43 @@ document.addEventListener('DOMContentLoaded', function() {
     if (segmentRevenueChartCtx) {
         new Chart(segmentRevenueChartCtx, segmentRevenueConfig);
     }
+});
+
+// לוגיקה עבור תפריט הניווט הנגלל במובייל
+document.getElementById('nav-toggle').onclick = function() {
+    const navContent = document.getElementById('nav-content');
+    // Toggle the 'hidden' class based on its current state
+    if (navContent.classList.contains('hidden')) {
+        navContent.classList.remove('hidden');
+        navContent.style.maxHeight = navContent.scrollHeight + "px"; // Opens to full height
+    } else {
+        navContent.style.maxHeight = "0"; // Closes
+        navContent.addEventListener('transitionend', function handler() {
+            navContent.classList.add('hidden'); // Add hidden after transition
+            navContent.removeEventListener('transitionend', handler);
+        });
+    }
+};
+
+// הוספת פונקציונליות לקישור "מאזן (בקרוב)"
+document.getElementById('balance-sheet-link').addEventListener('click', function(event) {
+    event.preventDefault(); // מונע ניווט לדף אחר
+    alert('הדף "מאזן" נמצא כעת בפיתוח ויעלה בקרוב מאוד! תודה על הסבלנות.');
+});
+
+// לוגיקה עבור שליחת הודעה למייל
+document.getElementById('send-email-button').addEventListener('click', function() {
+    const message = document.getElementById('message-input').value;
+    const recipient = 'your_email@example.com'; // שנה כאן לכתובת המייל שלך!
+    const subject = 'הודעה מלוח המחוונים של NVIDIA';
+    const body = `שלום,\n\nקיבלת הודעה מלוח המחוונים של NVIDIA:\n\n${message}\n\nבברכה,\nמשתמש לוח המחוונים`;
+
+    // יצירת קישור mailto:
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // פתיחת תוכנת המייל של המשתמש
+    window.location.href = mailtoLink;
+
+    // אופציונלי: ניקוי תיבת הטקסט לאחר השליחה
+    document.getElementById('message-input').value = '';
 });
