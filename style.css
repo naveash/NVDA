@@ -249,12 +249,11 @@ canvas {
     transition: max-height 0.3s ease-out; /* אנימציה חלקה */
     max-height: 0; /* הסתר כברירת מחדל */
     overflow: hidden; /* הסתר תוכן גולש */
-}
-/* כשהתפריט פתוח במובייל, הגדר גובה מקסימלי גדול מספיק */
-#nav-content.visible { /* שימוש בקלאס 'visible' שה-JS מוסיף */
-    max-height: 500px; /* גובה מקסימלי גדול מספיק כדי להכיל את כל הקישורים */
+    /* Remove 'visible' class as JS will handle it based on max-height */
 }
 
+/* Tailwind's 'hidden' utility class is applied directly by JS when menu is closed */
+/* For large screens, override the 'hidden' class with 'flex' and remove max-height constraint */
 @media (min-width: 1024px) { /* lg breakpoint for Tailwind */
     #nav-content {
         display: flex !important; /* תמיד הצג בדסקטופ */
