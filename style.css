@@ -149,6 +149,7 @@ body {
     line-height: 1.5;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     border: 1px solid #6ee7b7; /* גבול ירוק */
+    white-space: normal; /* מאפשר שבירת שורות ב-tooltip */
 }
 .tooltip .tooltiptext::after {
     content: "";
@@ -171,6 +172,14 @@ body {
         width: 180px;
         font-size: 0.75rem;
         padding: 6px 10px;
+        left: 50%; /* ודא שהוא ממוקם במרכז */
+        transform: translateX(-50%) translateY(-5px); /* ודא שהוא ממוקם במרכז */
+        right: auto; /* ביטול הגדרת ימין */
+    }
+    .tooltip .tooltiptext::after {
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto; /* ביטול הגדרת ימין */
     }
 }
 @media (min-width: 640px) {
@@ -180,16 +189,14 @@ body {
         font-size: 0.9rem;
         right: 50%;
         margin-right: -140px; /* חצי רוחב למרכוז הישן */
-        transform: none; /* ביטול הטרנספורמציה של המובייל */
+        transform: translateY(-5px); /* ביטול הטרנספורמציה של המובייל */
+        left: auto; /* ביטול הגדרת שמאל */
     }
     .tooltip .tooltiptext::after {
         left: auto;
         right: 50%;
         transform: translateX(50%); /* חזרה למיקום קודם */
         margin-right: -8px;
-    }
-    .tooltip:hover .tooltiptext {
-        transform: translateY(-5px); /* אפקט ריחוף רגיל */
     }
 }
 
@@ -208,34 +215,51 @@ body {
     color: #fff; /* הדגשה בלבן */
 }
 
-/* הגבלת גובה הגרפים - התיקון העיקרי! */
+/* הגבלת גובה הגרפים - תיקונים נוספים כאן */
 canvas {
-    max-height: 400px; /* גובה מקסימלי קבוע לכל הגרפים */
+    max-height: 350px; /* גובה מקסימלי סביר למובייל */
     width: 100% !important; /* וודא שהרוחב 100% */
     height: auto !important; /* הגובה יותאם אוטומטית לפי יחס גובה-רוחב ו-max-height */
+    box-sizing: border-box; /* כלול ריפוד וגבול ברוחב/גובה */
+    padding: 0; /* ודא שאין ריפוד פנימי ב-canvas עצמו */
 }
 
-/* התאמה למסכים קטנים יותר עבור גרפים */
-@media (max-width: 767px) { /* md breakpoint for Tailwind */
+/* התאמה למסכים קטנים מאוד עבור גרפים (למשל, אייפון SE) */
+@media (max-width: 400px) {
     canvas {
-        max-height: 300px; /* גובה מקסימלי קטן יותר במובייל */
+        max-height: 280px; /* גובה קטן יותר במובייל צר */
     }
 }
 
-/* לוגיקה לתפריט הניווט הרספונסיבי */
-#nav-content {
-    transition: max-height 0.3s ease-out;
-    max-height: 0;
-    overflow: hidden;
-}
-/* כשהתפריט פתוח, הגדר גובה מקסימלי כלשהו או גובה בפועל */
-#nav-content:not(.hidden) {
-    max-height: 300px; /* גובה מקסימלי כלשהו, ניתן לשנות בהתאם לתוכן */
+/* התאמה למסכים גדולים יותר עבור גרפים */
+@media (min-width: 768px) { /* md breakpoint for Tailwind */
+    canvas {
+        max-height: 450px; /* גובה גדול יותר לטאבלטים ומעלה */
+    }
 }
 @media (min-width: 1024px) { /* lg breakpoint for Tailwind */
+    canvas {
+        max-height: 500px; /* גובה עוד יותר גדול לדסקטופ */
+    }
+}
+
+
+/* לוגיקה לתפריט הניווט הרספונסיבי */
+#nav-content {
+    transition: max-height 0.3s ease-out; /* אנימציה חלקה */
+    max-height: 0; /* הסתר כברירת מחדל */
+    overflow: hidden; /* הסתר תוכן גולש */
+}
+/* כשהתפריט פתוח במובייל, הגדר גובה מקסימלי גדול מספיק */
+#nav-content.visible { /* שימוש בקלאס 'visible' שה-JS מוסיף */
+    max-height: 500px; /* גובה מקסימלי גדול מספיק כדי להכיל את כל הקישורים */
+}
+
+@media (min-width: 1024px) { /* lg breakpoint for Tailwind */
     #nav-content {
-        display: flex !important;
+        display: flex !important; /* תמיד הצג בדסקטופ */
         max-height: none !important; /* ביטול הגבלת גובה במסכי דסקטופ */
+        overflow: visible !important; /* ביטול הסתרת גלישה בדסקטופ */
     }
     .lg\:hidden {
         display: none !important; /* הסתרת כפתור התפריט בדסקטופ */
