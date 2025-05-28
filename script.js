@@ -370,7 +370,7 @@ document.getElementById('balance-sheet-link').addEventListener('click', function
 // לוגיקה עבור שליחת הודעה למייל
 document.getElementById('send-email-button').addEventListener('click', function() {
     const message = document.getElementById('message-input').value;
-    const recipient = 'your_email@example.com'; // שנה כאן לכתובת המייל שלך!
+    const recipient = 'nave97531@gmail.com'; // **כתובת המייל שלך - עודכנה כאן!**
     const subject = 'הודעה מלוח המחוונים של NVIDIA';
     const body = `שלום,\n\nקיבלת הודעה מלוח המחוונים של NVIDIA:\n\n${message}\n\nבברכה,\nמשתמש לוח המחוונים`;
 
