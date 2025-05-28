@@ -122,7 +122,7 @@ body {
     margin-top: 0; /* ללא מרווח עליון מיותר לכותרת הראשונה */
 }
 
-/* סגנונות ל-Tooltip (חלון קופץ) */
+/* סגנונות ל-Tooltip (חלון קופץ) - תיקונים לריכוז וגלישה */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -140,8 +140,8 @@ body {
     position: absolute;
     z-index: 10; /* מעל הכל */
     bottom: 125%;
-    right: 50%;
-    transform: translateX(50%); /* מרכוז טוב יותר */
+    left: 50%; /* מיקום משמאל של 50% */
+    transform: translateX(-50%); /* הזזה אחורה בחצי מרוחב ה-tooltip כדי למרכז */
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     font-size: 0.85rem; /* גודל גופן קטן יותר */
@@ -150,6 +150,10 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     border: 1px solid #6ee7b7; /* גבול ירוק */
     white-space: normal; /* מאפשר שבירת שורות ב-tooltip */
+    /* הוספה כדי למנוע גלישה מחוץ למסך במובייל צר */
+    box-sizing: border-box; /* וודא שהריפוד והגבול כלולים ברוחב */
+    max-width: 90vw; /* רוחב מקסימלי יחסי לגודל חלון התצוגה */
+    padding: 0.5rem 0.75rem; /* התאמת ריפוד קטן יותר */
 }
 .tooltip .tooltiptext::after {
     content: "";
@@ -164,39 +168,15 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-    transform: translateX(50%) translateY(-5px); /* אפקט עדין של עליה */
+    transform: translateX(-50%) translateY(-5px); /* אפקט עדין של עליה תוך שמירה על ריכוז */
 }
-/* הסתרת Tooltips במסכים קטנים מאוד אם הם מפריעים, או כוונן את המיקום */
-@media (max-width: 480px) {
-    .tooltip .tooltiptext {
-        width: 180px;
-        font-size: 0.75rem;
-        padding: 6px 10px;
-        left: 50%; /* ודא שהוא ממוקם במרכז */
-        transform: translateX(-50%) translateY(-5px); /* ודא שהוא ממוקם במרכז */
-        right: auto; /* ביטול הגדרת ימין */
-    }
-    .tooltip .tooltiptext::after {
-        left: 50%;
-        transform: translateX(-50%);
-        right: auto; /* ביטול הגדרת ימין */
-    }
-}
-@media (min-width: 640px) {
+/* התאמות נוספות לטולטיפ במסכים שונים */
+@media (min-width: 640px) { /* sm breakpoint for Tailwind */
     .tooltip .tooltiptext {
         width: 280px; /* רוחב רגיל במסכים גדולים */
         padding: 10px 15px;
         font-size: 0.9rem;
-        right: 50%;
-        margin-right: -140px; /* חצי רוחב למרכוז הישן */
-        transform: translateY(-5px); /* ביטול הטרנספורמציה של המובייל */
-        left: auto; /* ביטול הגדרת שמאל */
-    }
-    .tooltip .tooltiptext::after {
-        left: auto;
-        right: 50%;
-        transform: translateX(50%); /* חזרה למיקום קודם */
-        margin-right: -8px;
+        max-width: none; /* ביטול הגבלת רוחב יחסית */
     }
 }
 
