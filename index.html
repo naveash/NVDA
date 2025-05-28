@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -345,13 +345,16 @@
         // לוגיקה עבור תפריט הניווט הנגלל במובייל
         document.getElementById('nav-toggle').onclick = function() {
             const navContent = document.getElementById('nav-content');
-            navContent.classList.toggle('hidden'); // הסתר/הצג
-            navContent.classList.toggle('visible'); // הוסף קלאס לצורך אנימציה
-            // כאן נשתמש ב-max-height לאנימציה חלקה של פתיחה וסגירה
-            if (!navContent.classList.contains('hidden')) {
-                navContent.style.maxHeight = navContent.scrollHeight + "px"; // פותח לגובה מלא
+            // Toggle the 'hidden' class based on its current state
+            if (navContent.classList.contains('hidden')) {
+                navContent.classList.remove('hidden');
+                navContent.style.maxHeight = navContent.scrollHeight + "px"; // Opens to full height
             } else {
-                navContent.style.maxHeight = "0"; // סוגר
+                navContent.style.maxHeight = "0"; // Closes
+                navContent.addEventListener('transitionend', function handler() {
+                    navContent.classList.add('hidden'); // Add hidden after transition
+                    navContent.removeEventListener('transitionend', handler);
+                });
             }
         };
 
