@@ -18,7 +18,7 @@ const revenueConfig = {
     data: revenueDataExtended,
     options: {
         responsive: true,
-        maintainAspectRatio: true, // שינוי ל-true
+        maintainAspectRatio: true,
         aspectRatio: 2, // יחס רוחב לגובה (לדוגמה 2:1). ניתן לכוונן: 1.8, 2, 2.2 וכו'.
         plugins: {
             title: {
@@ -31,7 +31,7 @@ const revenueConfig = {
                     color: '#cbd5e0', // צבע לבן למקרא
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                     }
                 }
             },
@@ -39,12 +39,12 @@ const revenueConfig = {
                 rtl: true,
                 titleFont: {
                     family: 'Inter',
-                    size: 14,
+                    size: 13, // קטן יותר למובייל
                     weight: 'bold'
                 },
                 bodyFont: {
                     family: 'Inter',
-                    size: 13
+                    size: 12 // קטן יותר למובייל
                 },
                 backgroundColor: 'rgba(45, 55, 72, 0.9)', // רקע כהה יותר ל-tooltip
                 borderColor: '#6ee7b7', // גבול ירוק ל-tooltip
@@ -72,14 +72,15 @@ const revenueConfig = {
                     color: '#cbd5e0',
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                         weight: 'bold'
                     }
                 },
                 ticks: {
                     color: '#a0aec0', // צבע אפור לתוויות ציר
                     font: {
-                        family: 'Inter'
+                        family: 'Inter',
+                        size: 10 // קטן יותר למובייל
                     },
                     callback: function(value) {
                         return value + ' מיליארד';
@@ -97,14 +98,15 @@ const revenueConfig = {
                     color: '#cbd5e0',
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                         weight: 'bold'
                     }
                 },
                 ticks: {
                     color: '#a0aec0',
                     font: {
-                        family: 'Inter'
+                        family: 'Inter',
+                        size: 10 // קטן יותר למובייל
                     }
                 },
                 grid: {
@@ -140,7 +142,7 @@ const grossMarginConfig = {
     data: grossMarginData,
     options: {
         responsive: true,
-        maintainAspectRatio: true, // שינוי ל-true
+        maintainAspectRatio: true,
         aspectRatio: 2, // יחס רוחב לגובה. וודא זהה או דומה לגרף הכנסות
         plugins: {
             title: {
@@ -153,7 +155,7 @@ const grossMarginConfig = {
                     color: '#cbd5e0',
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                     }
                 }
             },
@@ -161,12 +163,12 @@ const grossMarginConfig = {
                 rtl: true,
                 titleFont: {
                     family: 'Inter',
-                    size: 14,
+                    size: 13, // קטן יותר למובייל
                     weight: 'bold'
                 },
                 bodyFont: {
                     family: 'Inter',
-                    size: 13
+                    size: 12 // קטן יותר למובייל
                 },
                 backgroundColor: 'rgba(45, 55, 72, 0.9)',
                 borderColor: '#6ee7b7',
@@ -194,14 +196,15 @@ const grossMarginConfig = {
                     color: '#cbd5e0',
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                         weight: 'bold'
                     }
                 },
                 ticks: {
                     color: '#a0aec0',
                     font: {
-                        family: 'Inter'
+                        family: 'Inter',
+                        size: 10 // קטן יותר למובייל
                     },
                     callback: function(value) {
                         return value + '%';
@@ -219,14 +222,15 @@ const grossMarginConfig = {
                     color: '#cbd5e0',
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                         weight: 'bold'
                     }
                 },
                 ticks: {
                     color: '#a0aec0',
                     font: {
-                        family: 'Inter'
+                        family: 'Inter',
+                        size: 10 // קטן יותר למובייל
                     }
                 },
                 grid: {
@@ -262,7 +266,7 @@ const segmentRevenueConfig = {
     data: segmentRevenueData,
     options: {
         responsive: true,
-        maintainAspectRatio: true, // שינוי ל-true
+        maintainAspectRatio: true,
         aspectRatio: 1, // גרף עוגה לרוב נראה טוב יותר ביחס 1:1 או קרוב לזה
         plugins: {
             legend: {
@@ -272,21 +276,21 @@ const segmentRevenueConfig = {
                     color: '#cbd5e0',
                     font: {
                         family: 'Inter',
-                        size: 14,
+                        size: 12, // קטן יותר למובייל
                     },
-                    padding: 20 // רווח בין פריטי מקרא
+                    padding: 15 // רווח בין פריטי מקרא
                 }
             },
             tooltip: {
                 rtl: true,
                 titleFont: {
                     family: 'Inter',
-                    size: 14,
+                    size: 13, // קטן יותר למובייל
                     weight: 'bold'
                 },
                 bodyFont: {
                     family: 'Inter',
-                    size: 13
+                    size: 12 // קטן יותר למובייל
                 },
                 backgroundColor: 'rgba(45, 55, 72, 0.9)',
                 borderColor: '#6ee7b7',
@@ -309,7 +313,7 @@ const segmentRevenueConfig = {
         layout: {
             padding: {
                 left: 0,
-                right: 20,
+                right: 0, // התאמה למובייל
                 top: 0,
                 bottom: 0
             }
