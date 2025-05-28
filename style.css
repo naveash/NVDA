@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow-x: hidden; /* למנוע גלילה אופקית מיותרת */
 }
 
 /* סגנונות לקונטיינר הראשי של התוכן */
@@ -20,15 +20,22 @@ body {
     width: 100%;
     margin-top: 6rem; /* רווח גדול יותר מתחת לסרגל הניווט הקבוע */
     margin-bottom: 2rem;
-    padding: 0 1.5rem; /* ריפוד מהצדדים */
+    padding: 0 1rem; /* ריפוד מהצדדים עבור מובייל */
     box-sizing: border-box;
+}
+
+/* התאמת ריפוד בקונטיינר למסכים גדולים יותר */
+@media (min-width: 640px) { /* sm breakpoint for Tailwind */
+    .container {
+        padding: 0 1.5rem;
+    }
 }
 
 /* סגנונות לכרטיס בודד */
 .card {
     background-color: #2d3748; /* רקע כהה יותר לכרטיסים */
     border-radius: 1rem; /* פינות מעוגלות יותר */
-    padding: 1.5rem;
+    padding: 1.25rem; /* ריפוד קטן יותר במובייל */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,24 +50,42 @@ body {
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem; /* גודל כותרת קטן יותר במובייל */
     font-weight: 700;
     color: #cbd5e0; /* צבע כותרת בהיר יותר */
     margin-bottom: 0.75rem;
 }
+@media (min-width: 640px) {
+    .card-title {
+        font-size: 1.25rem; /* גודל רגיל במסכים גדולים */
+    }
+}
+
 .card-value {
-    font-size: 2.2rem; /* גודל גדול יותר לערכים */
+    font-size: 1.8rem; /* גודל קטן יותר לערכים במובייל */
     font-weight: 800; /* מודגש יותר */
     color: #6ee7b7; /* ירוק בהיר ובולט */
     margin-bottom: 0.5rem;
     direction: ltr; /* ערכים מספריים משמאל לימין */
     text-align: left;
 }
+@media (min-width: 640px) {
+    .card-value {
+        font-size: 2.2rem; /* גודל רגיל במסכים גדולים */
+    }
+}
+
 .card-change {
-    font-size: 0.95rem;
+    font-size: 0.85rem; /* קטן יותר במובייל */
     color: #a0aec0; /* צבע אפור עדין לשינויים */
     line-height: 1.4;
 }
+@media (min-width: 640px) {
+    .card-change {
+        font-size: 0.95rem; /* גודל רגיל במסכים גדולים */
+    }
+}
+
 .positive-change {
     color: #34d399; /* ירוק בהיר יותר */
     font-weight: 600;
@@ -76,15 +101,22 @@ body {
 
 /* סגנונות לכותרות סעיפים */
 .section-title {
-    font-size: 2.5rem; /* גודל גדול יותר לכותרות סעיפים */
+    font-size: 2rem; /* גודל קטן יותר לכותרות סעיפים במובייל */
     font-weight: 800; /* מודגש מאוד */
     color: #fff;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+    margin-top: 2rem; /* מרווח קטן יותר במובייל */
+    margin-bottom: 1.5rem;
     text-align: center;
     border-bottom: 2px solid #6ee7b7; /* קו הפרדה ירוק */
     padding-bottom: 1rem;
     line-height: 1.2;
+}
+@media (min-width: 640px) {
+    .section-title {
+        font-size: 2.5rem; /* גודל רגיל במסכים גדולים */
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+    }
 }
 .section-title:first-of-type {
     margin-top: 0; /* ללא מרווח עליון מיותר לכותרת הראשונה */
@@ -99,20 +131,20 @@ body {
 }
 .tooltip .tooltiptext {
     visibility: hidden;
-    width: 280px; /* רוחב גדול יותר לתוכן מפורט */
+    width: 220px; /* רוחב קטן יותר לתוכן מפורט במובייל */
     background-color: #4a5568; /* רקע כהה ל-tooltip */
     color: #fff;
     text-align: center;
     border-radius: 8px; /* פינות מעוגלות */
-    padding: 10px 15px;
+    padding: 8px 12px; /* ריפוד קטן יותר */
     position: absolute;
     z-index: 10; /* מעל הכל */
     bottom: 125%;
     right: 50%;
-    margin-right: -140px; /* חצי רוחב למרכוז */
+    transform: translateX(50%); /* מרכוז טוב יותר */
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* גודל גופן קטן יותר */
     direction: rtl;
     line-height: 1.5;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
@@ -122,8 +154,8 @@ body {
     content: "";
     position: absolute;
     top: 100%;
-    right: 50%;
-    margin-right: -8px;
+    left: 50%; /* התאמה למרכוז */
+    transform: translateX(-50%);
     border-width: 8px;
     border-style: solid;
     border-color: #4a5568 transparent transparent transparent;
@@ -131,8 +163,36 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-    transform: translateY(-5px); /* אפקט עדין של עליה */
+    transform: translateX(50%) translateY(-5px); /* אפקט עדין של עליה */
 }
+/* הסתרת Tooltips במסכים קטנים מאוד אם הם מפריעים, או כוונן את המיקום */
+@media (max-width: 480px) {
+    .tooltip .tooltiptext {
+        width: 180px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+}
+@media (min-width: 640px) {
+    .tooltip .tooltiptext {
+        width: 280px; /* רוחב רגיל במסכים גדולים */
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        right: 50%;
+        margin-right: -140px; /* חצי רוחב למרכוז הישן */
+        transform: none; /* ביטול הטרנספורמציה של המובייל */
+    }
+    .tooltip .tooltiptext::after {
+        left: auto;
+        right: 50%;
+        transform: translateX(50%); /* חזרה למיקום קודם */
+        margin-right: -8px;
+    }
+    .tooltip:hover .tooltiptext {
+        transform: translateY(-5px); /* אפקט ריחוף רגיל */
+    }
+}
+
 
 /* סגנונות להערות בתחתית הדף */
 .note {
@@ -155,52 +215,10 @@ canvas {
     height: auto !important; /* הגובה יותאם אוטומטית לפי יחס גובה-רוחב ו-max-height */
 }
 
-/* התאמה למסכים קטנים יותר */
-@media (max-width: 767px) {
-    .container {
-        padding: 0 1rem;
-        margin-top: 6rem; /* התאמה לסרגל ניווט קבוע */
-    }
-    .header h1 {
-        font-size: 2.2rem;
-    }
-    .header p {
-        font-size: 1rem;
-    }
-    .section-title {
-        font-size: 1.8rem;
-    }
-    .card {
-        padding: 1rem;
-    }
-    .card-title {
-        font-size: 1rem;
-    }
-    .card-value {
-        font-size: 1.8rem;
-    }
-    .card-change {
-        font-size: 0.8rem;
-    }
-    .tooltip .tooltiptext {
-        width: 180px;
-        margin-right: -90px;
-        font-size: 0.75rem;
-        padding: 6px 10px;
-    }
-    .tooltip .tooltiptext::after {
-        border-width: 6px;
-        margin-right: -6px;
-    }
+/* התאמה למסכים קטנים יותר עבור גרפים */
+@media (max-width: 767px) { /* md breakpoint for Tailwind */
     canvas {
         max-height: 300px; /* גובה מקסימלי קטן יותר במובייל */
-    }
-    /* הסתרת כפתור הtoggle עבור מסכים גדולים */
-    .lg\:hidden {
-        display: block !important;
-    }
-    .lg\:flex {
-        display: none !important;
     }
 }
 
@@ -214,7 +232,7 @@ canvas {
 #nav-content:not(.hidden) {
     max-height: 300px; /* גובה מקסימלי כלשהו, ניתן לשנות בהתאם לתוכן */
 }
-@media (min-width: 1024px) {
+@media (min-width: 1024px) { /* lg breakpoint for Tailwind */
     #nav-content {
         display: flex !important;
         max-height: none !important; /* ביטול הגבלת גובה במסכי דסקטופ */
