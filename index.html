@@ -20,7 +20,7 @@
                     <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v15z"/></svg>
                 </button>
             </div>
-            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="nav-content">
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:visible" id="nav-content">
                 <div class="text-lg lg:flex-grow lg:text-left text-center mt-4 lg:mt-0">
                     <a href="#overview-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">סקירה כללית</a>
                     <a href="#graphs-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">גרפים פיננסיים</a>
@@ -314,7 +314,7 @@
                     <p class="text-gray-400 text-sm mt-2">
                         **GAAP (Generally Accepted Accounting Principles):** כללי חשבונאות מקובלים בארה"ב.
                         <br>
-                        **Non-GAAP:** מדדים פיננסיים שאינם לפי GAAP, ומספקים תמונה שונה, לרוב "נקייה" יותר, על ביצועי החברה על ידי הוצאת פריטים חד-פעמיים.
+                        **Non-GAAP:** מדדים פיננסיים שאינם לפי GAAP, ומספקים תמונה שונה, לרוב "נקייה" יותר, על ידי הוצאת פריטים חד-פעמיים.
                     </p>
                 </div>
                 <div class="card bg-gray-900 border border-gray-600">
@@ -345,11 +345,13 @@
         // לוגיקה עבור תפריט הניווט הנגלל במובייל
         document.getElementById('nav-toggle').onclick = function() {
             const navContent = document.getElementById('nav-content');
-            navContent.classList.toggle('hidden');
+            navContent.classList.toggle('hidden'); // הסתר/הצג
+            navContent.classList.toggle('visible'); // הוסף קלאס לצורך אנימציה
+            // כאן נשתמש ב-max-height לאנימציה חלקה של פתיחה וסגירה
             if (!navContent.classList.contains('hidden')) {
-                navContent.style.maxHeight = navContent.scrollHeight + "px";
+                navContent.style.maxHeight = navContent.scrollHeight + "px"; // פותח לגובה מלא
             } else {
-                navContent.style.maxHeight = "0";
+                navContent.style.maxHeight = "0"; // סוגר
             }
         };
 
