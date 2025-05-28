@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA Dashboard - סיכום פיננסי מעודכן</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-700 text-gray-100 font-inter antialiased">
+
+    <nav class="bg-gray-800 p-4 shadow-xl fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center flex-wrap">
+            <a href="index.html" class="text-white text-3xl font-extrabold rounded-md px-3 py-2 hover:bg-gray-700 transition duration-300">
+                <span class="text-green-400">NVIDIA</span> Dashboard
+            </a>
+            <div class="block lg:hidden">
+                <button id="nav-toggle" class="flex items-center px-3 py-2 border-2 rounded text-gray-200 border-gray-400 hover:text-white hover:border-white transition duration-300">
+                    <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v15z"/></svg>
+                </button>
+            </div>
+            <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden" id="nav-content">
+                <div class="text-lg lg:flex-grow lg:text-left text-center mt-4 lg:mt-0">
+                    <a href="#overview-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">סקירה כללית</a>
+                    <a href="#graphs-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">גרפים פיננסיים</a>
+                    <a href="#segments-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">מגזרים</a>
+                    <a href="#outlook-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">תחזיות</a>
+                    <a href="#concepts-section" class="block lg:inline-block text-gray-300 hover:text-green-400 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300">מושגים פיננסיים</a>
+                    <a href="#" id="balance-sheet-link" class="block lg:inline-block text-red-400 hover:text-red-300 px-3 py-2 rounded-md hover:bg-gray-700 transition duration-300 cursor-not-allowed">מאזן (בקרוב מאוד!)</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 mt-24 pb-8">
+        <section id="overview-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h1 class="text-5xl font-extrabold text-white mb-4 text-center leading-tight">
+                סיכום פיננסי מקיף של <span class="text-green-400">NVIDIA</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-8 text-center">
+                רבעון 1, שנת כספים 2026 (הסתיים ב-27 באפריל 2025)
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card bg-gray-900 border border-green-600">
+                    <div class="card-title text-green-400">
+                        <span class="tooltip">
+                            הכנסות כוללות
+                            <span class="tooltiptext">
+                                ההכנסות הכוללות של NVIDIA לרבעון הראשון הסתכמו ב-**44.1 מיליארד דולר**. זהו גידול משמעותי של **12% מהרבעון הקודם** ועלייה מדהימה של **69% בהשוואה לשנה שעברה**, המעיד על צמיחה אקספוננציאלית.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$44.1 מיליארד</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ 12%</span> מהרבעון הקודם
+                        <br>
+                        <span class="positive-change">▲ 69%</span> משנה שעברה
+                    </div>
+                </div>
+
+                <div class="card bg-gray-900 border border-green-600">
+                    <div class="card-title text-green-400">
+                        <span class="tooltip">
+                            הכנסות ממרכזי נתונים
+                            <span class="tooltiptext">
+                                הכנסות מגזר מרכזי הנתונים הגיעו לשיא של **39.1 מיליארד דולר**. זהו גידול של **10% מהרבעון הקודם** ועלייה עוצרת נשימה של **73% משנה שעברה**, מה שמדגיש את הדומיננטיות המוחלטת של NVIDIA בתחום ה-AI והתשתיות המתקדמות.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$39.1 מיליארד</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ 10%</span> מהרבעון הקודם
+                        <br>
+                        <span class="positive-change">▲ 73%</span> משנה שעברה
+                    </div>
+                </div>
+
+                <div class="card bg-gray-900 border border-green-600">
+                    <div class="card-title text-green-400">
+                        <span class="tooltip">
+                            רווח גולמי (GAAP)
+                            <span class="tooltiptext">
+                                הרווח הגולמי (GAAP) לרבעון הראשון עמד על **60.5%**. נתון זה מושפע מחיוב ה-H20, וללא החיוב היה עומד על **71.3%**. החברה שואפת להגיע לאמצע שנות ה-70% בהמשך השנה.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">60.5%</div>
+                    <div class="card-change">
+                        <span class="neutral-change">ללא חיוב H20: 71.3%</span>
+                        <br>
+                        <span class="neutral-change">שאיפה: אמצע שנות ה-70%</span>
+                    </div>
+                </div>
+
+                <div class="card bg-gray-900 border border-green-600">
+                    <div class="card-title text-green-400">
+                        <span class="tooltip">
+                            רווח למניה בדילול (GAAP)
+                            <span class="tooltiptext">
+                                הרווח למניה בדילול (GAAP) לרבעון הראשון היה **0.76 דולר**. נתון זה משקף את חלקם של בעלי המניות ברווחי החברה לאחר דילול.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$0.76</div>
+                    <div class="card-change">
+                        <span class="neutral-change">למניה בדילול</span>
+                    </div>
+                </div>
+
+                <div class="card bg-gray-900 border border-green-600">
+                    <div class="card-title text-green-400">
+                        <span class="tooltip">
+                            מזומנים מפעילות תפעולית
+                            <span class="tooltiptext">
+                                תזרים המזומנים מפעילות תפעולית הסתכם ב-**27.414 מיליארד דולר**, המעיד על יכולת החברה לייצר מזומנים משמעותיים מפעילות הליבה שלה, נתון קריטי לבריאות פיננסית.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$27.414 מיליארד</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ תזרים חיובי חזק</span>
+                    </div>
+                </div>
+
+                <div class="card bg-gray-900 border border-green-600">
+                    <div class="card-title text-green-400">
+                        <span class="tooltip">
+                            מזומנים ושווה מזומנים
+                            <span class="tooltiptext">
+                                יתרת המזומנים ושווה המזומנים בסוף הרבעון עמדה על **15.234 מיליארד דולר**, המספקת נזילות איתנה לפעילות החברה.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$15.234 מיליארד</div>
+                    <div class="card-change">
+                        <span class="neutral-change">יתרה בסוף הרבעון</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="graphs-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">גרפים פיננסיים מקיפים</h2>
+            <p class="text-lg text-gray-300 text-center mb-8">
+                הצצה ויזואלית למגמות הביצועים של NVIDIA לאורך רבעונים.
+            </p>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-inner mb-6">
+                <h3 class="text-2xl font-semibold text-green-400 mb-4 text-center">הכנסות כוללות לפי רבעון (במיליארדי דולרים)</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-inner mb-6">
+                <h3 class="text-2xl font-semibold text-green-400 mb-4 text-center">רווח גולמי Non-GAAP לפי רבעון (%)</h3>
+                <canvas id="grossMarginChart"></canvas>
+            </div>
+
+            <div class="bg-gray-900 p-6 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-green-400 mb-4 text-center">הכנסות לפי מגזרים (Q1 FY26)</h3>
+                <canvas id="segmentRevenueChart"></canvas>
+            </div>
+        </section>
+
+        <section id="segments-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">הכנסות לפי מגזרים עיקריים</h2>
+            <p class="text-lg text-gray-300 text-center mb-8">
+                ניתוח מעמיק של תרומת כל מגזר להכנסות הכוללות של NVIDIA.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card bg-gray-900 border border-blue-600">
+                    <div class="card-title text-blue-400">
+                        <span class="tooltip">
+                            מגזר מרכזי נתונים (Data Center)
+                            <span class="tooltiptext">
+                                זהו מנוע הצמיחה העיקרי של NVIDIA, המניע פתרונות AI, מחשוב על (HPC) ותשתיות ענן. הביקוש לשבבי H100 ו-Blackwell ממשיך לנסוק.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$39.1 מיליארד</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ 10% Q/Q</span> |
+                        <span class="positive-change">▲ 73% Y/Y</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        המגזר הגדול והצומח ביותר, מונע על ידי פתרונות AI ו-HPC.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-purple-600">
+                    <div class="card-title text-purple-400">
+                        <span class="tooltip">
+                            מגזר גימינג (Gaming)
+                            <span class="tooltiptext">
+                                כולל מכירות כרטיסים גרפיים למשחקים (GeForce), ושוק קונסולות המשחקים. חווה התאוששות חזקה וביקוש לכרטיסי RTX החדשים.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$3.8 מיליארד</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ 48% Q/Q</span> |
+                        <span class="positive-change">▲ 42% Y/Y</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        התאוששות חזקה והשקת מוצרים חדשים מניעים את הצמיחה.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-yellow-600">
+                    <div class="card-title text-yellow-400">
+                        <span class="tooltip">
+                            מגזר ויזואליזציה מקצועית (Pro Visualization)
+                            <span class="tooltiptext">
+                                פתרונות גרפיים לתעשיות מקצועיות כמו עיצוב, אדריכלות, רפואה ובידור. מבוסס על סדרת Quadro/RTX.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$345 מיליון</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ 6% Q/Q</span> |
+                        <span class="positive-change">▲ 16% Y/Y</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        צמיחה יציבה בתחומי התכנון, העיצוב והמדיה.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-red-600">
+                    <div class="card-title text-red-400">
+                        <span class="tooltip">
+                            מגזר רכב (Automotive)
+                            <span class="tooltiptext">
+                                טכנולוגיות NVIDIA לרכב אוטונומי, מערכות מידע ובידור (Infotainment) וסימולציות. כולל את פלטפורמת Drive.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$232 מיליון</div>
+                    <div class="card-change">
+                        <span class="positive-change">▲ 20% Q/Q</span> |
+                        <span class="positive-change">▲ 8% Y/Y</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        השקעות בפיתוח נהיגה אוטונומית ומערכות לרכב.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="outlook-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl mb-8 border-b-4 border-green-500">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">תחזיות ודגשים עתידיים</h2>
+            <p class="text-lg text-gray-300 text-center mb-8">
+                מבט קדימה על ציפיות החברה לרבעונים הבאים ודגשי הפיתוח.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card bg-gray-900 border border-indigo-600">
+                    <div class="card-title text-indigo-400">
+                        <span class="tooltip">
+                            תחזית הכנסות לרבעון 2 שנת כספים 2026
+                            <span class="tooltiptext">
+                                NVIDIA צופה הכנסות של **45.0 מיליארד דולר** לרבעון השני של שנת הכספים 2026, בטווח של פלוס מינוס 2%. תחזית זו משקפת אובדן הכנסות של כ-**8.0 מיליארד דולר** ממוצרי H20 עקב מגבלות הייצוא לסין.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">$45.0 מיליארד</div>
+                    <div class="card-change">
+                        <span class="neutral-change">± 2%</span>
+                        <br>
+                        <span class="negative-change">-$8.0 מיליארד</span> (השפעת H20)
+                    </div>
+                </div>
+                <div class="card bg-gray-900 border border-indigo-600">
+                    <div class="card-title text-indigo-400">
+                        <span class="tooltip">
+                            תחזית רווח גולמי (Non-GAAP) לרבעון 2
+                            <span class="tooltiptext">
+                                הרווח הגולמי המותאם (Non-GAAP) לרבעון השני צפוי להיות **72.0%** (פלוס מינוס 50 נקודות בסיס). החברה נחושה להגיע לאמצע שנות ה-70% בהמשך השנה, מה שישפר משמעותית את הרווחיות.
+                            </span>
+                        </span>
+                    </div>
+                    <div class="card-value text-white">72.0%</div>
+                    <div class="card-change">
+                        <span class="neutral-change">± 50 נקודות בסיס</span>
+                    </div>
+                </div>
+            </div>
+            <div class="note bg-gray-900 border border-gray-600 p-6 rounded-lg mt-8 text-gray-300">
+                <h3 class="text-xl font-bold text-green-400 mb-3">דגשים נוספים:</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><strong class="text-white">דיבידנד:</strong> NVIDIA תשלם דיבידנד רבעוני במזומן של **$0.01 למניה** ב-3 ביולי 2025.</li>
+                    <li><strong class="text-white">התמקדות עתידית:</strong> החברה מתמקדת בהרחבת יכולות תשתית ה-AI שלה, כולל ייצור בקנה מידה מלא של מחשב העל **Blackwell NVL72 AI** אשר צפוי להאיץ באופן דרמטי את יכולות ה-AI העולמיות.</li>
+                    <li><strong class="text-white">חיוב H20:</strong> החיוב של 4.5 מיליארד דולר ברבעון הראשון נבע ממלאי עודף והתחייבויות רכש של מוצרי H20 עקב דרישות רישוי ייצוא חדשות בסין.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="concepts-section" class="bg-gray-800 p-8 rounded-xl shadow-2xl border-b-4 border-green-500">
+            <h2 class="text-4xl font-bold text-white mb-6 text-center">מושגים פיננסיים והסברים</h2>
+            <p class="text-lg text-gray-300 text-center mb-8">
+                הבנה מעמיקה של המונחים הפיננסיים המרכזיים בדוחות החברה.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card bg-gray-900 border border-gray-600">
+                    <div class="card-title text-gray-300">הכנסות (Revenue)</div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        הסכום הכולל של כסף שהחברה מייצרת ממכירת מוצרים או שירותים לפני ניכוי עלויות. זוהי שורת הרווח העליונה בדוח רווח והפסד.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-gray-600">
+                    <div class="card-title text-gray-300">רווח גולמי (Gross Margin)</div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        ההכנסות פחות עלות הסחורות שנמכרו (עלויות ייצור ישירות). מראה את הרווח של החברה מכל מכירה לפני הוצאות תפעוליות.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-gray-600">
+                    <div class="card-title text-gray-300">GAAP vs. Non-GAAP</div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        **GAAP (Generally Accepted Accounting Principles):** כללי חשבונאות מקובלים בארה"ב.
+                        <br>
+                        **Non-GAAP:** מדדים פיננסיים שאינם לפי GAAP, ומספקים תמונה שונה, לרוב "נקייה" יותר, על ביצועי החברה על ידי הוצאת פריטים חד-פעמיים.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-gray-600">
+                    <div class="card-title text-gray-300">הוצאות תפעוליות (Operating Expenses)</div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        עלויות הקשורות להפעלת העסק שאינן קשורות ישירות לייצור (כמו מחקר ופיתוח, שיווק, הנהלה).
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-gray-600">
+                    <div class="card-title text-gray-300">רווח למניה (EPS)</div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        החלק מרווחי החברה המוקצה לכל מניה רגילה במחזור. אינדיקטור חשוב לרווחיות החברה עבור המשקיעים.
+                    </p>
+                </div>
+                <div class="card bg-gray-900 border border-gray-600">
+                    <div class="card-title text-gray-300">תזרים מזומנים (Cash Flow)</div>
+                    <p class="text-gray-400 text-sm mt-2">
+                        התנועה של מזומנים פנימה והחוצה מהחברה. תזרים מזומנים מפעילות תפעולית מראה כמה מזומנים נוצרו מפעילות הליבה של העסק.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // לוגיקה עבור תפריט הניווט הנגלל במובייל
+        document.getElementById('nav-toggle').onclick = function() {
+            const navContent = document.getElementById('nav-content');
+            navContent.classList.toggle('hidden');
+            if (!navContent.classList.contains('hidden')) {
+                navContent.style.maxHeight = navContent.scrollHeight + "px";
+            } else {
+                navContent.style.maxHeight = "0";
+            }
+        };
+
+        // הוספת פונקציונליות לקישור "מאזן (בקרוב)"
+        document.getElementById('balance-sheet-link').addEventListener('click', function(event) {
+            event.preventDefault(); // מונע ניווט לדף אחר
+            alert('הדף "מאזן" נמצא כעת בפיתוח ויעלה בקרוב מאוד! תודה על הסבלנות.');
+        });
+    </script>
+</body>
+</html>

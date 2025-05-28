@@ -1,0 +1,228 @@
+/* סגנונות כלליים לגוף הדף */
+body {
+    font-family: 'Inter', sans-serif;
+    direction: rtl; /* יישור מימין לשמאל לעברית */
+    text-align: right; /* יישור טקסט לימין */
+    background-color: #1a202c; /* כהה יותר, תואם לגרדיאנט */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* סגנונות לקונטיינר הראשי של התוכן */
+.container {
+    max-width: 1000px; /* הגדלת רוחב מקסימלי */
+    width: 100%;
+    margin-top: 6rem; /* רווח גדול יותר מתחת לסרגל הניווט הקבוע */
+    margin-bottom: 2rem;
+    padding: 0 1.5rem; /* ריפוד מהצדדים */
+    box-sizing: border-box;
+}
+
+/* סגנונות לכרטיס בודד */
+.card {
+    background-color: #2d3748; /* רקע כהה יותר לכרטיסים */
+    border-radius: 1rem; /* פינות מעוגלות יותר */
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #4a5568; /* גבול עדין יותר */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.card:hover {
+    transform: translateY(-8px) scale(1.02); /* אפקט ריחוף בולט יותר */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: #6ee7b7; /* גבול ירוק בהיר בריחוף */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #cbd5e0; /* צבע כותרת בהיר יותר */
+    margin-bottom: 0.75rem;
+}
+.card-value {
+    font-size: 2.2rem; /* גודל גדול יותר לערכים */
+    font-weight: 800; /* מודגש יותר */
+    color: #6ee7b7; /* ירוק בהיר ובולט */
+    margin-bottom: 0.5rem;
+    direction: ltr; /* ערכים מספריים משמאל לימין */
+    text-align: left;
+}
+.card-change {
+    font-size: 0.95rem;
+    color: #a0aec0; /* צבע אפור עדין לשינויים */
+    line-height: 1.4;
+}
+.positive-change {
+    color: #34d399; /* ירוק בהיר יותר */
+    font-weight: 600;
+}
+.negative-change {
+    color: #ef4444; /* אדום בוהק יותר */
+    font-weight: 600;
+}
+.neutral-change {
+    color: #94a3b8; /* אפור-כחול */
+    font-weight: 500;
+}
+
+/* סגנונות לכותרות סעיפים */
+.section-title {
+    font-size: 2.5rem; /* גודל גדול יותר לכותרות סעיפים */
+    font-weight: 800; /* מודגש מאוד */
+    color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border-bottom: 2px solid #6ee7b7; /* קו הפרדה ירוק */
+    padding-bottom: 1rem;
+    line-height: 1.2;
+}
+.section-title:first-of-type {
+    margin-top: 0; /* ללא מרווח עליון מיותר לכותרת הראשונה */
+}
+
+/* סגנונות ל-Tooltip (חלון קופץ) */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.5); /* קו תחתון קלוש לציון tooltip */
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 280px; /* רוחב גדול יותר לתוכן מפורט */
+    background-color: #4a5568; /* רקע כהה ל-tooltip */
+    color: #fff;
+    text-align: center;
+    border-radius: 8px; /* פינות מעוגלות */
+    padding: 10px 15px;
+    position: absolute;
+    z-index: 10; /* מעל הכל */
+    bottom: 125%;
+    right: 50%;
+    margin-right: -140px; /* חצי רוחב למרכוז */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
+    direction: rtl;
+    line-height: 1.5;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    border: 1px solid #6ee7b7; /* גבול ירוק */
+}
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    margin-right: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: #4a5568 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-5px); /* אפקט עדין של עליה */
+}
+
+/* סגנונות להערות בתחתית הדף */
+.note {
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    color: #cbd5e0;
+    border-top: 1px dashed #6ee7b7; /* קו מקווקו ירוק */
+    padding-top: 2rem;
+    text-align: right;
+    line-height: 1.6;
+}
+.note strong {
+    color: #fff; /* הדגשה בלבן */
+}
+
+/* הגבלת גובה הגרפים - התיקון העיקרי! */
+canvas {
+    max-height: 400px; /* גובה מקסימלי קבוע לכל הגרפים */
+    width: 100% !important; /* וודא שהרוחב 100% */
+    height: auto !important; /* הגובה יותאם אוטומטית לפי יחס גובה-רוחב ו-max-height */
+}
+
+/* התאמה למסכים קטנים יותר */
+@media (max-width: 767px) {
+    .container {
+        padding: 0 1rem;
+        margin-top: 6rem; /* התאמה לסרגל ניווט קבוע */
+    }
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    .header p {
+        font-size: 1rem;
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .card {
+        padding: 1rem;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-value {
+        font-size: 1.8rem;
+    }
+    .card-change {
+        font-size: 0.8rem;
+    }
+    .tooltip .tooltiptext {
+        width: 180px;
+        margin-right: -90px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+    .tooltip .tooltiptext::after {
+        border-width: 6px;
+        margin-right: -6px;
+    }
+    canvas {
+        max-height: 300px; /* גובה מקסימלי קטן יותר במובייל */
+    }
+    /* הסתרת כפתור הtoggle עבור מסכים גדולים */
+    .lg\:hidden {
+        display: block !important;
+    }
+    .lg\:flex {
+        display: none !important;
+    }
+}
+
+/* לוגיקה לתפריט הניווט הרספונסיבי */
+#nav-content {
+    transition: max-height 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+}
+/* כשהתפריט פתוח, הגדר גובה מקסימלי כלשהו או גובה בפועל */
+#nav-content:not(.hidden) {
+    max-height: 300px; /* גובה מקסימלי כלשהו, ניתן לשנות בהתאם לתוכן */
+}
+@media (min-width: 1024px) {
+    #nav-content {
+        display: flex !important;
+        max-height: none !important; /* ביטול הגבלת גובה במסכי דסקטופ */
+    }
+    .lg\:hidden {
+        display: none !important; /* הסתרת כפתור התפריט בדסקטופ */
+    }
+    .lg\:flex-grow {
+        flex-grow: 1; /* מאפשר לקישורים לתפוס מקום בדסקטופ */
+    }
+}
